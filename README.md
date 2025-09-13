@@ -16,16 +16,22 @@
 
 **1、用例模板(baseInfo、testcase的关键字不能缺少）**
 ------------------------------------------------------------------------------------------------
-- baseInfo:
-    api_name: 轨迹查询
+    api_name: 
+        轨迹查询
+  
     url: /monitor/vehicle/getMileageFrom
+  
     method: post
+  
     header:
       Content-Type: application/x-www-form-urlencoded;charset=UTF-8
       token: ${get_extract_data(token)}
       userid: ${get_extract_data(userid)}
+  
     cookies: //可有可无，根据项目实际情况，如果项目需要cookie则要写
       SESSION: ${get_extract_data(Cookie,SESSION)}
+
+
   testCase:
     -
       case_name: 有效车牌号轨迹查询
@@ -53,10 +59,6 @@
         data: '"data":(\d*)'        #提取数字  
       extract_list:  #提取多个参数，以列表形式返回，支持json提取和正则表达式提取
         id: $.result.id
-          
-**关于参数提取，json提取器表达式***
------------------
-可以使用这个在线jsonpath解析器：http://www.atoolbox.net/Tool.php?Id=792
 
 -------------------------------------------------------------------------------------------------
 **2、参数说明**
